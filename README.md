@@ -12,7 +12,11 @@ Production-ready static site for luminousbm.com. No build step, no dependencies.
 | robots.txt | Allows all crawlers, points to sitemap |
 | sitemap.xml | Submitted to Google Search Console |
 | CNAME | Custom domain binding for GitHub Pages |
-| assets/ | Logo mark, favicon set, apple touch icon |
+| assets/ | Logo (light + dark + mark), favicon set, apple touch icon, OG image |
+
+## Local preview
+
+Open `index.html` from inside this folder (keep `assets/` next to it) and the logo will load. If you move index.html on its own, the relative `assets/...` paths break and the logo will not appear. That is expected, and it resolves itself once the whole folder is in the repo.
 
 ## Deploy to GitHub Pages
 
@@ -27,11 +31,21 @@ Production-ready static site for luminousbm.com. No build step, no dependencies.
 3. For the apex `luminousbm.com`, add A records to GitHub Pages IPs: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153.
 4. In repo Settings > Pages, tick Enforce HTTPS once the certificate is issued (can take up to an hour after DNS propagates).
 
+## Logo assets
+
+| File | Use |
+|---|---|
+| assets/logo-light.png | Marble wordmark + gold burst, for dark backgrounds (nav, footer, thanks, 404) |
+| assets/logo-dark.png | Black wordmark + gold burst, for light backgrounds (print, docs, light sections) |
+| assets/logo-mark.png | Gold starburst only, used as promo watermark and favicon source |
+| assets/og-image.jpg | 1200x630 social share card |
+
 ## Lead form (goes to info@luminousbm.com)
 
 The quote form posts to FormSubmit, which forwards submissions to info@luminousbm.com. No backend or account needed, but note:
 
-- ACTIVATION REQUIRED: the very first submission triggers a confirmation email to info@luminousbm.com. Someone must click the activation link in that email once. Until then, submissions are held.
+- ACTIVATION REQUIRED: the very first submission triggers a confirmation email to info@luminousbm.com. Someone must click the activation link in that email once. Until then, submissions are held. Do this yourself right after deploying.
+- If FormSubmit is ever unreachable, the form falls back to opening the visitor's email client pre-addressed and pre-filled to info@luminousbm.com, so a lead is never lost.
 - Submissions arrive as a formatted table with subject "New Free Quote Request, luminousbm.com".
 - Spam protection: honeypot field is enabled. If spam becomes an issue, change `_captcha` from `false` to `true` in index.html.
 - JS users stay on the page and see an inline success state; no-JS users are redirected to thanks.html.
@@ -60,4 +74,5 @@ Optional boosters: create/claim the Google Business Profile for 91 Skyway Avenue
 - Stats used on page: "500+ spaces maintained" and "98% client retention" (illustrative)
 - Testimonials are placeholder copy, swap in real client quotes
 - Short bios written for Sadaf, Hari and Arash (original site listed names/titles only)
-- Wix-hosted image URLs are still used; ideally download and self-host in /assets before Wix is decommissioned
+- Wix-hosted photo URLs are still used for section imagery; download and self-host in /assets before Wix is decommissioned
+- Contact details on the live site: (416) 548-7433, 5955 Airport Road Suite 106, Mississauga, ON L4V 1W5
